@@ -5,7 +5,16 @@ import db from "./db.js";
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://your-frontend.vercel.app"
+    ],
+    credentials: true,
+  })
+);
 
 // Register
 app.post("/register", async (req, res) => {
@@ -45,6 +54,5 @@ app.post("/login", async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 });
-
-const PORT = 5731;
-app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));
+const PORT = process.env.PORT || 5731;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
