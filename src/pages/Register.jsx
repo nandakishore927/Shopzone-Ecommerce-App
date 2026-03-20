@@ -31,6 +31,7 @@ const Register = () => {
   const [strength, setStrength] = useState("");
   const navigate = useNavigate();
 
+  const API = "https://auth-backend-5vx0.onrender.com";
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -41,7 +42,7 @@ const Register = () => {
 
 
     try {
-      const response = await axios.post("http://localhost:5731/register", {
+      const response = await axios.post(`${API}/register`, {
         username, email, password
       });
 
