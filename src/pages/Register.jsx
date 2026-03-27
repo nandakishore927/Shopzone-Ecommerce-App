@@ -56,39 +56,57 @@ const Register = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-purple-400">
-      <div className="w-96 px-8 py-5 rounded-xl 
-        bg-white/10 backdrop-blur-lg 
-        border border-white/20 
-        shadow-2xl">
-        <h2 className="text-xl font-bold mb-4 text-white text-center">Register</h2>
+    //<div className="flex justify-evenly items-center h-screen bg-white">
+    <div className="min-h-screen flex items-center justify-evenly bg-gradient-to-r from-blue-50 to-purple-100">
+      <img 
+        src="https://res.cloudinary.com/dgle0w6mi/image/upload/f_auto,q_auto/1774366521191_dxxlmk"
+        alt="register"
+        className="w-98 h-115 object-cover rounded-lg"/>
+        <div className="bg-white p-8 rounded-2xl shadow-lg w-96 border border-gray-200">
+        <h2 className="text-xl font-bold mb-4 text-black text-center">Register</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label htmlFor="username" className="block text-white">Username</label>
-            <input id="username" type="text" className="w-full px-3 py-2 rounded-md 
-              bg-white/20 text-white placeholder-gray-200 
-              border border-white/30 
-              focus:outline-none focus:ring-2 focus:ring-blue-400" value={username} onChange={(e) => setUsername(e.target.value)} required />
+            <label htmlFor="username" className="block text-gray-600">Username</label>
+            <input
+              id="username"
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+              placeholder="Enter username"
+              className="w-full px-3 py-2 rounded-lg 
+              bg-white text-gray-800 placeholder-gray-400
+              border border-gray-300
+              focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400
+              transition"
+            />
           </div>
           <div className="mb-4 text-white">
-            <label htmlFor="email" className="block text-white">Email</label>
-            <input id="email" type="email" className="w-full px-3 py-2 rounded-md 
-              bg-white/20 text-white placeholder-gray-200 
-              border border-white/30 
+            <label htmlFor="email" className="block text-gray-600">Email</label>
+            <input id="email" type="email" placeholder="Enter email" className="w-full px-3 py-2 rounded-md 
+              bg-white/20 text-black placeholder-gray-400 
+              border border-black/30 
               focus:outline-none focus:ring-2 focus:ring-blue-400" value={email} onChange={(e) => setEmail(e.target.value)} required />
           </div>
           <div className="mb-4 text-white">
-            <label htmlFor="password" className="block text-white">Password</label>
-            <input id="password" type="password" className="w-full px-3 py-2 rounded-md 
-              bg-white/20 text-white placeholder-gray-200 
-              border border-white/30 
-              focus:outline-none focus:ring-2 focus:ring-blue-400" value={password}  
-            onChange={(e) => {
-              const value = e.target.value;
-              setPassword(value);
-              setStrength(checkPasswordStrength(value)); 
-            }} required />
-            {strength && (
+            <label htmlFor="password" className="block text-gray-600">Password</label>
+            <input
+              id="password"
+              type="password"
+              value={password}
+              onChange={(e) => {
+                const value = e.target.value;
+                setPassword(value);
+                setStrength(checkPasswordStrength(value));
+              }}
+              required
+              placeholder="Enter password"
+              className="w-full px-3 py-2 rounded-lg 
+              bg-white text-gray-800 placeholder-gray-400
+              border border-gray-300
+              focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400
+              transition"/>
+              {strength && (
               <p className={`text-sm mt-1 font-semibold
                 ${strength === "Level 3" ? "text-green-600" : ""}
                 ${strength === "Level 2" ? "text-yellow-600" : ""}

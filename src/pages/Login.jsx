@@ -19,7 +19,7 @@ const Login = () => {
 
   if (response.data.message === "Login successful") {
     setError(""); // clear error
-    navigate("/");
+    navigate("/home");
   }
 } catch (err) {
   const message = err.response?.data?.message || "Invalid credentials";
@@ -28,38 +28,37 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-purple-400">
-      <div className="w-96 px-8 py-5 rounded-xl 
-        bg-white/10 backdrop-blur-lg 
-        border border-white/20 
-        shadow-2xl">
-        <h2 className="text-xl font-bold mb-4 text-white text-center">Login</h2>
+    <div className="min-h-screen flex items-center justify-evenly bg-gradient-to-r from-blue-50 to-purple-100">
+      <div className="bg-white p-8 rounded-2xl shadow-lg w-96 border border-gray-200">
+        <h2 className="text-xl font-bold mb-4 text-black text-center">Login</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label htmlFor="username" className="block text-white">Username</label>
+            <label htmlFor="username" className="block text-gray-600">Username</label>
             <input
               id="username"
               type="text"
-              placeholder="Enter Username"
-              className="w-full px-3 py-2 rounded-md 
-              bg-white/20 text-white placeholder-gray-200 
-              border border-white/30 
-              focus:outline-none focus:ring-2 focus:ring-blue-400"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
+              placeholder="Enter username"
+              className="w-full px-3 py-2 rounded-lg 
+              bg-white text-gray-800 placeholder-gray-400
+              border border-gray-300
+              focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400
+              transition"
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="password" className="block text-white">Password</label>
+            <label htmlFor="password" className="block text-gray-600">Password</label>
             <input
               id="password"
               type="password"
               placeholder="Enter Password"
-              className="w-full px-3 py-2 rounded-md 
-              bg-white/20 text-white placeholder-gray-200 
-              border border-white/30 
-              focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full px-3 py-2 rounded-lg 
+              bg-white text-gray-800 placeholder-gray-400
+              border border-gray-300
+              focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400
+              transition"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -82,6 +81,13 @@ const Login = () => {
           <Link to="/register" className="text-blue-500 font-bold">Register</Link>
         </div>
       </div>
+
+
+      <img 
+        src="https://res.cloudinary.com/dgle0w6mi/image/upload/f_auto,q_auto/1774366038433_dfd8v4"
+        alt="login"
+        className="w-90 h-94 object-cover rounded-lg"
+      />
     </div>
   );
 };
