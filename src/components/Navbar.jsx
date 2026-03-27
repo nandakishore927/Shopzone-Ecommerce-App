@@ -26,7 +26,7 @@ const Navbar = () => {
         alt="shop"
         className="w-12 h-12 object-cover rounded-lg"
       /> 
-      <p className="text-3xl font-bold text-blue-400 tracking-wide pt-2">Store</p>
+      <p className="text-3xl font-bold text-blue-400 tracking-wide pt-2">ShopZone</p>
       </div>
       </Link>
       </div>
